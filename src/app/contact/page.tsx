@@ -33,10 +33,10 @@ export default function ContactPage() {
 
       <section className="container-x grid gap-6 lg:grid-cols-12">
         {/* Channels */}
-        <div className="space-y-6 lg:col-span-5">
+        <div className="min-w-0 space-y-6 lg:col-span-5">
           <Stagger className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1" gap={0.07}>
             {channels.map(({ label, value, note, href, Icon, external, featured }) => (
-              <StaggerItem key={label}>
+              <StaggerItem key={label} className="min-w-0">
                 <a
                   href={href}
                   target={external ? "_blank" : undefined}
@@ -100,7 +100,7 @@ export default function ContactPage() {
         </div>
 
         {/* Form */}
-        <Reveal className="lg:col-span-7" delay={0.1}>
+        <Reveal className="min-w-0 lg:col-span-7" delay={0.1}>
           <ContactForm />
         </Reveal>
       </section>

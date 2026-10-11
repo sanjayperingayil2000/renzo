@@ -242,24 +242,25 @@ export function Team() {
           text="Animators, visual designers, campaign managers and hospitality consultants — passionate, dedicated and results-driven."
         />
       </div>
-      <Stagger className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4" gap={0.1}>
+      <Stagger className="mt-14 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4" gap={0.1}>
         {team.map((m, i) => (
           <StaggerItem key={m.name}>
-            <article className="group glass relative overflow-hidden rounded-[2rem] p-3">
+            <article className="group glass relative h-full overflow-hidden rounded-[1.5rem] p-2 sm:rounded-[2rem] sm:p-3">
               <div
                 className={`relative grid aspect-[4/5] place-items-center overflow-hidden rounded-[1.6rem] bg-gradient-to-br ${avatarGradients[i % 4]}`}
               >
                 <div aria-hidden className="absolute inset-0 opacity-20 [background-image:radial-gradient(white_1px,transparent_1px)] [background-size:14px_14px]" />
-                <span className="relative font-display text-7xl font-semibold tracking-tighter text-white/95 transition-transform duration-700 group-hover:scale-110">
+                <span className="relative font-display text-5xl font-semibold sm:text-7xl tracking-tighter text-white/95 transition-transform duration-700 group-hover:scale-110">
                   {m.initials}
                 </span>
-                <div className="absolute inset-x-3 bottom-3 translate-y-[120%] rounded-2xl bg-white/85 p-4 text-sm text-ink-soft backdrop-blur-md transition-transform duration-500 group-hover:translate-y-0">
+                <div className="absolute inset-x-3 bottom-3 hidden translate-y-[120%] rounded-2xl [@media(hover:hover)]:block bg-white/85 p-4 text-sm text-ink-soft backdrop-blur-md transition-transform duration-500 group-hover:translate-y-0">
                   {m.bio}
                 </div>
               </div>
-              <div className="px-3 pb-3 pt-5">
-                <h3 className="font-display text-xl font-semibold tracking-tight">{m.name}</h3>
-                <p className="text-sm text-brand">{m.role}</p>
+              <div className="px-2 pb-2 pt-4 sm:px-3 sm:pb-3 sm:pt-5">
+                <h3 className="font-display text-base font-semibold tracking-tight sm:text-xl">{m.name}</h3>
+                <p className="text-xs text-brand sm:text-sm">{m.role}</p>
+                <p className="mt-2 text-xs text-ink-soft sm:text-sm [@media(hover:hover)]:hidden">{m.bio}</p>
               </div>
             </article>
           </StaggerItem>

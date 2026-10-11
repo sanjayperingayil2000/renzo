@@ -72,7 +72,7 @@ export default function Process() {
         <h2 className="mt-5 font-display text-4xl font-semibold leading-[1.02] tracking-[-0.035em] sm:text-5xl">
           A structured, transparent & <span className="text-gradient">agile</span> methodology.
         </h2>
-        <ol className="relative mt-12 space-y-5 border-l border-brand/20 pl-8">
+        <ol className="relative ml-[18px] mt-12 space-y-5 border-l border-brand/20 pl-8">
           {workProcess.map((p, i) => (
             <motion.li
               key={p.title}
@@ -82,7 +82,7 @@ export default function Process() {
               transition={{ duration: 0.6, delay: 0.05 }}
               className="glass relative rounded-3xl p-6"
             >
-              <span className="absolute -left-[3.05rem] top-6 grid size-9 place-items-center rounded-full bg-brand text-sm font-semibold text-white ring-4 ring-mist">
+              <span className="absolute -left-[50px] top-6 grid size-9 place-items-center rounded-full bg-brand text-sm font-semibold text-white ring-4 ring-mist">
                 {i + 1}
               </span>
               <h3 className="font-display text-2xl font-semibold tracking-tight">{p.title}</h3>

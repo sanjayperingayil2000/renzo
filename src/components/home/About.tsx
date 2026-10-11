@@ -60,7 +60,7 @@ export default function About() {
   return (
     <section id="about" className="relative py-28 md:py-40">
       <div className="container-x grid gap-12 md:grid-cols-12">
-        <div className="md:col-span-3">
+        <div className="min-w-0 md:col-span-3">
           <div className="md:sticky md:top-32">
             <Reveal>
               <Eyebrow>About us</Eyebrow>
@@ -70,12 +70,12 @@ export default function About() {
             </Reveal>
           </div>
         </div>
-        <div className="md:col-span-9">
+        <div className="min-w-0 md:col-span-9">
           <ScrollText text={company.about} />
 
           <Reveal className="mt-16">
-            <div className="glass rounded-[2rem] p-8 md:p-10">
-              <p className="font-display text-3xl font-semibold tracking-tight text-ink md:text-5xl">
+            <div className="glass rounded-[2rem] p-6 sm:p-8 md:p-10">
+              <p className="font-display text-[clamp(1.2rem,5.6vw,3rem)] font-semibold tracking-tight text-ink">
                 We are <Rotator words={all} />
               </p>
               <div className="mt-8 grid gap-4 sm:grid-cols-3">
