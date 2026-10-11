@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Renzo Studio — Website
 
-## Getting Started
+Marketing website for **Renzo Studio**: Animation, Digital Marketing, Hospitality Consulting and Renzo Academy.
 
-First, run the development server:
+Built with **Next.js 15 (App Router)**, **TypeScript**, **Tailwind CSS v4** and **Framer Motion**. All content is static for now (no APIs).
+
+## Run it locally
+
+You need Node.js 18.18 or newer (20+ recommended).
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Production build:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Pages
 
-To learn more about Next.js, take a look at the following resources:
+| Route | What's on it |
+| --- | --- |
+| `/` | Hero, Agency / Academy / Contact buttons, about, stats, services, 6-step process (horizontal scroll), why us, academy teaser, team, footer with contact details |
+| `/agency` | Service switcher, selected works (filterable portfolio + project modal), core competencies |
+| `/agency/animation` · `/agency/digital-marketing` · `/agency/hospitality-consulting` | About, capabilities, portfolio, how it works |
+| `/academy` | What we offer + course tracks, trailer, internships, learning assets, roadmap, FAQ |
+| `/contact` | WhatsApp, email, Instagram, LinkedIn, phone, address/map card, contact form |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Editing content
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**Almost everything lives in one file: `src/data/site.ts`.** Look for `// TODO` comments:
 
-## Deploy on Vercel
+- `contact`: email, phone, WhatsApp number, Instagram, LinkedIn, address, hours
+- `team`: real names, roles and bios
+- `services[].projects`: **these are sample case studies.** Replace them with real work before going live
+- `academy.trailer.url`: paste a YouTube embed URL (`https://www.youtube.com/embed/VIDEO_ID`) or a file path such as `/videos/trailer.mp4` (put the file in `public/videos/`). While it's empty, an animated teaser is shown instead.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Brand
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Primary blue: `#173DED` (from the company deck), defined in `src/app/globals.css` as `--color-brand`
+- Logo: `src/components/Logo.tsx` (SVG, inherits colour). Standalone files are in `public/brand/`. The favicon is `src/app/icon.svg`.
+- Fonts: Inter + Inter Tight, self-hosted through `@fontsource-variable` (no Google Fonts request needed)
+
+## Project structure
+
+```
+src/
+  app/            routes (page.tsx per page), layout, global styles
+  components/     shared UI (Navbar, Footer, PageHero, motion helpers, ui)
+    home/         home page sections
+    agency/       service switcher + portfolio
+    academy/      tracks, trailer, roadmap, FAQ
+    contact/      contact form
+  data/site.ts    ALL website content
+```
+
+## Next steps (when you're ready)
+
+- Connect the contact form (`src/components/contact/ContactForm.tsx`) to an email service or API route
+- Replace the generated project artwork with real images or videos
+- Deploy to Vercel: push to GitHub, then import the repository at vercel.com
